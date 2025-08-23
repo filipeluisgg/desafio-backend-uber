@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+#AWS SES - Chave de API
+/usuario-do-desafio-backend-uber_accessKeys.csv
