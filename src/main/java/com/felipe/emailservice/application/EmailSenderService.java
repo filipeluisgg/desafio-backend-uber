@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailSenderService implements EmailSenderUseCase
 {
-    private final EmailSenderGateway emailSenderGateway;
+    private final EmailSenderGateway emailSenderGateway; //SesEmailSender obj will be injected here.
 
     @Autowired
     public EmailSenderService(EmailSenderGateway emailSenderGateway) {
