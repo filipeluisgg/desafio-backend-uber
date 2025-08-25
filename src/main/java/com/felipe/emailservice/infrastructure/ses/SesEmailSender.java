@@ -24,14 +24,15 @@ public class SesEmailSender implements EmailSenderGateway
     }
 
     @Override
-    public void sendEmail(String destiny, String subject, String body) {
+    public void sendEmail(String destiny, String subject, String body)
+    {
         SendEmailRequest request = new SendEmailRequest()
                 .withSource(myEmail)
                 .withDestination(new Destination().withToAddresses(destiny))
                 .withMessage(new Message()
-                        .withSubject(new Content(subject))
-                        .withBody(new Body().withText(new Content(body)))
-                );
+                .withSubject(new Content(subject))
+                .withBody(new Body().withText(new Content(body)))
+        );
 
         try {
             sesClient.sendEmail(request);
