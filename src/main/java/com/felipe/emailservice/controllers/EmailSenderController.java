@@ -3,6 +3,7 @@ package com.felipe.emailservice.controllers;
 import com.felipe.emailservice.application.EmailSenderService;
 import com.felipe.emailservice.core.dto.EmailRequest;
 import com.felipe.emailservice.core.exceptions.EmailServiceException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class EmailSenderController {
     }
 
     @PostMapping("/send")
-    public ResponseEntity<String> sendEmail(@RequestBody EmailRequest emailRequest) {
+    public ResponseEntity<String> sendEmail(@RequestBody @Valid EmailRequest emailRequest) {
         try {
             emailSenderService.sendEmail(emailRequest.destiny(), emailRequest.subject(), emailRequest.body());
             return ResponseEntity.ok("Email sent successfully!");
